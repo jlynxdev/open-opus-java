@@ -76,6 +76,7 @@ class OpenOpusHttpClientProxy {
 
     private HttpResponse<? extends OpenOpusResponse> handleStatusError(HttpResponse<? extends OpenOpusResponse> res) {
         if (!res.body().getStatus().isSuccess()) {
+            log.debug("OpenOpus API return an error status with message '{}'", res.body().getStatus().getError().orElse(""));
             throw new OpenOpusErrorException(res.body().getStatus().getError().orElse(""));
         }
         return res;
