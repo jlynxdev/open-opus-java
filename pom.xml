@@ -9,6 +9,32 @@
     <version>0.1.0</version>
     <packaging>jar</packaging>
 
+    <name>Open Opus Java</name>
+    <description>A Java client library for the Open Opus API.</description>
+    <url>https://www.github.com/jlynxdev/open-opus-java</url>
+
+    <developers>
+        <developer>
+            <name>Jacek Nowak</name>
+            <email>jaceknowakdev@gmail.com</email>
+            <url>https://www.jlynx.dev</url>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://opensource.org/license/mit</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/jlynxdev/open-opus-java.git</connection>
+        <developerConnection>scm:git:https://github.com/jlynxdev/open-opus-java.git</developerConnection>
+        <url>https://github.com/jlynxdev/open-opus-java</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
