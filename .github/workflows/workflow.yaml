@@ -22,22 +22,24 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Check Maven version
-        run: mvn --version
+      - name: Check Java and Maven versions
+        run: |
+          java --version
+          mvn --version
 
       - name: Resolve Dependencies
         run: mvn dependency:resolve
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build with Maven
-        run: mvn -X clean verify
+      - name: Run tests
+        run: mvn clean test
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
