@@ -27,9 +27,6 @@ jobs:
           java --version
           mvn --version
 
-      - name: Resolve Dependencies
-        run: mvn dependency:resolve
-
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
