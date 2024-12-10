@@ -15,15 +15,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Resolve Dependencies
-        run: mvn dependency:resolve
-
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '21'
           cache: maven
+
+      - name: Check Maven version
+        run: mvn --version
+
+      - name: Resolve Dependencies
+        run: mvn dependency:resolve
 
       - name: Cache dependencies
         uses: actions/cache@v3
