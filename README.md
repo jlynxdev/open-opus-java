@@ -3,7 +3,9 @@
 ## Description
 Open Opus Java is an asynchronous Java client for the [Open Opus API](https://openopus.org/). It
 provides convenient access to the Open Opus classical music metadata service, offering composer details, works
-and metadata in a structured, easy-to-use format. Available in [Maven Central](https://search.maven.org/).
+and metadata in a structured, easy-to-use format.
+
+[//]: # (Available in [Maven Central]&#40;https://search.maven.org/&#41;.)
 
 ## Features
 - Asynchronous HTTP requests for non-blocking operations using Java Futures.
@@ -13,21 +15,40 @@ and metadata in a structured, easy-to-use format. Available in [Maven Central](h
 ## Getting Started
 
 ### Installation
-Add the dependency to your `pom.xml` to use this library in your Maven project:
+The official JAR files are available as a GitHub Release. You may install it
+with the GitHub CLI:
+
+```shell
+# list available version releases
+gh release list --repo jlynxdev/open-opus-java
+
+# download a release of choice
+gh release download v0.1.5 --repo jlynxdev/open-opus-java --pattern "*.jar"
+```
+
+Install the downloaded jar into your local Maven repository (`~/.m2` directory):
+```shell
+mvn install:install-file -Dfile=[path-to-jar-file] -DgroupId=dev.jlynx -DartifactId=open-opus-java -Dversion=0.1.5 -Dpackaging=jar
+```
+
+Finally, add the dependency to your `pom.xml` to use this library in your Maven project:
 
 ```xml
 <dependency>
     <groupId>dev.jlynx</groupId>
     <artifactId>open-opus-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.5</version>
 </dependency>
 ```
 
-For Gradle users, add the following to your `build.gradle`:
+[//]: # (For Gradle users, add the following to your `build.gradle`:)
 
-```groovy
-implementation 'dev.jlynx:open-opus-java:0.1.0'
-```
+[//]: # ()
+[//]: # (```groovy)
+
+[//]: # (implementation 'dev.jlynx:open-opus-java:0.1.0')
+
+[//]: # (```)
 
 ### Example usage
 
@@ -42,7 +63,7 @@ OpenOpusClientOptions options = OpenOpusClientOptions.builder()
         .build();
 // Setting the options object is not required; defaults will be used if it's not passed
 OpenOpusClient client = new OpenOpusClient(options);
-// Use the client object to fetch data
+// Use the client object to fetch data...
 ```
 
 #### Fetching composer data
@@ -99,7 +120,7 @@ CompletableFuture<HttpResponse<OmnisearchResponse>> searched = client.search("be
 ## Requirements
 
 - Java 21 or higher
-- Maven or Gradle build tool
+- Maven or Gradle build tool (optionally)
 
 ## Documentation
 
@@ -116,4 +137,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 This project utilizes the [Open Opus API](https://openopus.org/) for accessing classical music metadata.
-Thanks to the Open Opus team for making this valuable data accessible.
+Thanks to the Open Opus team for making this valuable data accessible!
